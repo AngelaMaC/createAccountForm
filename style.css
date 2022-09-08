@@ -2,11 +2,16 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%
+}
+
 body {
   background-image: linear-gradient(75deg, #ff4a86, #ffa17a, #ffc580, #fffefb);
   margin: 0px;
   padding: 0px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
 }
 
 .app {
@@ -19,7 +24,8 @@ body {
 
 .form {
   min-height: 40vh;
-  width: 50vw;
+  /* width: 60vw; */
+  max-width: 600px;
   padding: 10px 40px 30px 40px;
   background-color: white;
   border-radius: 25px;
@@ -53,6 +59,7 @@ input:active {
 #password,
 #loginpassword {
   width: 100%;
+
   margin-bottom: 10px;
   border-radius: 8px;
 }
@@ -64,6 +71,7 @@ input:active {
   background-color: #fce9d2;
   border-radius: 15px;
   padding: 10px;
+  width: 100%;
 }
 
 .valid {
@@ -291,7 +299,7 @@ button[value="submit"] .fa-arrow-right {
   background-color: #f4f4f4;
   margin: 20% auto;
   padding: 20px;
-  width: 70%;
+  max-width: 500px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   border-radius: 25px;
 }
@@ -307,4 +315,15 @@ button[value="submit"] .fa-arrow-right {
   text-decoration: none;
   cursor: pointer;
   color: #000;
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media screen and (max-width: 800px) {
+
+  .form,
+  .modalcontent {
+    width: 95vw;
+  }
 }

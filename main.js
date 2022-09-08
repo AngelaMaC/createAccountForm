@@ -25,7 +25,7 @@ const userpassword = document.querySelector('#password')
 
 // show message box
 userpassword.onfocus = function () {
-    document.querySelector("#passwordmessage").style.display = "block"
+    document.querySelector("#passwordmessage").style.display = "inline-block"
 }
 
 // hide message box 
@@ -172,6 +172,12 @@ function validate() {
 
     return data
 }
+
+// Hide banner error if Login link is selected
+document.querySelector('#loginlink').addEventListener('click', e => {
+    e.preventDefault()
+    signupmessage.className = "alert-hidden"
+})
 
 // Confirm email looks like - text@domain.tld
 function validateEmail(email) {
