@@ -1,11 +1,10 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html {
-  height: 100%
-}
-
+html,
 body {
   background-image: linear-gradient(75deg, #ff4a86, #ffa17a, #ffc580, #fffefb);
   margin: 0px;
@@ -16,25 +15,38 @@ body {
 
 .app {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
-  min-height: 40vh;
-  /* width: 60vw; */
   max-width: 600px;
   padding: 10px 40px 30px 40px;
   background-color: white;
   border-radius: 25px;
+  margin: auto;
 }
 
 h1 {
   text-align: center;
   color: #202020;
   margin-bottom: 1px;
+}
+
+a {
+  color: #ff4a86;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffa17a
 }
 
 input {
@@ -153,7 +165,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #4796ff;
+  background-color: #ffa17a;
   border-radius: 10px;
   color: white;
   padding: 15px 15px;
@@ -166,7 +178,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(58, 129, 205);
+  background-color: #ffc580;
   cursor: pointer;
 }
 
@@ -196,7 +208,7 @@ button:hover {
 }
 
 /* Sign up */
-/* https://css-tricks.com/snippets/css/a-guide-to-flexbox */
+
 button[value="submit"] {
   position: relative;
 }
@@ -206,13 +218,27 @@ button[value="submit"] {
   padding: 12px;
 }
 
-/* #success-welcome {
+footer {
+  /* padding-top: 30px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* .created {
+  text-align: center;
+  color: #DDF2EB;
+  margin-top: 100px;
+} */
+
+#success {
   display: flex;
   flex-direction: column;
   height: auto
-} */
+}
 
-#success-welcome h1 {
+#success h1 {
   background: -webkit-linear-gradient(#ff4a86, #ffa17a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -262,7 +288,8 @@ button[value="submit"] .fa-arrow-right {
 /* Log In View */
 .login-hidden,
 .welcome-hidden,
-#createaccount-hidden {
+#createaccount-hidden,
+.createaccount-hidden {
   display: none;
 }
 
@@ -317,13 +344,15 @@ button[value="submit"] .fa-arrow-right {
   color: #000;
 }
 
+
+
 /* Media Queries */
 
 /* Mobile */
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
 
   .form,
   .modalcontent {
     width: 95vw;
   }
-}
+} */

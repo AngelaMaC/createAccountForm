@@ -119,7 +119,7 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please enter <strong>a First Name</strong></div>'
+        signupmessage.innerHTML += '<div>Please enter <strong>a First Name</strong></div>'
     } else {
         data.fields.firstname = firstnamevalue
     }
@@ -128,7 +128,7 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please enter a <strong>Last Name</strong></div>'
+        signupmessage.innerHTML += '<div>Please enter a <strong>Last Name</strong></div>'
     } else {
         data.fields.lastname = lastnamevalue
     }
@@ -137,7 +137,7 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please enter a valid <strong>User Name</strong></div>'
+        signupmessage.innerHTML += '<div>Please enter a valid <strong>User Name</strong></div>'
     } else {
         data.fields.username = usernamevalue
     }
@@ -146,7 +146,7 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please enter a valid <strong>Password</strong></div>'
+        signupmessage.innerHTML += '<div>Please enter a valid <strong>Password</strong></div>'
     } else {
         data.fields.password = passwordvalue
     }
@@ -155,7 +155,7 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please enter a valid <strong>Email</strong></div>'
+        signupmessage.innerHTML += '<div>Please enter a valid <strong>Email</strong></div>'
     } else {
         data.fields.email = emailvalue
     }
@@ -164,11 +164,25 @@ function validate() {
         data.isValid = false
 
         signupmessage.className = "alert"
-        signupmessage.innerHTML = signupmessage.innerHTML + '<div>Please agree to the <strong>Terms of Service</strong></div>'
+        signupmessage.innerHTML += '<div>Please agree to the <strong>Terms of Service</strong></div>'
     } else {
         data.isValid = true
         signupmessage.className = "alert-hidden"
     }
+
+    // If all data is valid, display message on Sign Up
+    if (data.isValid === true) {
+        const create = document.querySelector('#createaccount')
+        const welcome = document.querySelector('#success')
+        welcome.classList.remove('welcome-hidden')
+        create.classList.add('createaccount-hidden')
+        welcome.innerHTML = `<h1>Thanks for viewing my demo!</h1>`
+        console.log('Thanks for signing up!')
+    }
+
+    // if (signupmessage.className === 'alert' && data.isValid === false) {
+    //     signupmessage.remove()
+    // }
 
     return data
 }
@@ -196,7 +210,7 @@ function createAccount(fields) {
 document.addEventListener('DOMContentLoaded', () => {
     const createaccount = document.querySelector('#createaccount')
     const login = document.querySelector('#login')
-    // const welcome = document.querySelector('#success')
+    const welcome = document.querySelector('#success')
 
     document.querySelector('#createaccountlink').addEventListener('click', e => {
         e.preventDefault()
@@ -209,13 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         login.classList.remove('login-hidden')
         createaccount.classList.add('login-hidden')
     })
-
-    // document.querySelector('#loginbutton').addEventListener('click', e => {
-    //     e.preventDefault()
-    //     welcome.classList.remove('welcome-hidden')
-    //     login.classList.add('login-hidden')
-
-    // })
 });
 
 // Existing user log in form verification
@@ -238,12 +245,13 @@ function verifylogin(e) {
         //Success message
         welcome.classList.remove('welcome-hidden')
         login.classList.add('login-hidden')
-        success.innerHTML = `<div id='success-welcome'><h1>Welcome, ` + loginusernamevalue + `!</h1><div>`
+        welcome.innerHTML = `<h1>Thanks for viewing my demo, ` + loginusernamevalue + `!</h1>`
         console.log('Thanks for logging in!')
 
         // location.href = "./private_practice_portal.html"
     }
 }
+
 
 // Terms of Service Modal
 // Modified from: https://codepen.io/bradtraversy/pen/zEOrPp
